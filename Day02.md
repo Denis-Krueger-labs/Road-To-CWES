@@ -1,4 +1,4 @@
-# Day 02 – APIs, CRUD Operations, and First API Interaction
+# Day 02 APIs, CRUD Operations, and First API Interaction
 
 ## What I studied today
 
