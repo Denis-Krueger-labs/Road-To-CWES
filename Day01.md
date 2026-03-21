@@ -1,4 +1,4 @@
-# Day 01 – HTTP, HTTPS, cURL, Requests, Responses, and Headers
+# Day 01 HTTP, HTTPS, cURL, Requests, Responses, and Headers
 
 ## What I studied today
 
