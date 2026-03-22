@@ -249,6 +249,19 @@ This helped me understand how frontend components work together.
 
 ---
 
+### Additional practical work
+
+Outside the main study topic, I also spent time working on an HTB machine.
+
+- obtained foothold relatively quickly
+- root took much longer and required a lot more enumeration and problem-solving
+- this reminded me that “easy” machine ratings do not always mean the full path is obvious
+- the machine was a good reminder that persistence, enumeration, and reviewing dead ends matter just as much as knowing individual concepts
+
+I may document the full machine separately, but it was still an important part of today’s practical learning.
+
+---
+
 ### Explored page source
 
 While inspecting the source code, I found:
