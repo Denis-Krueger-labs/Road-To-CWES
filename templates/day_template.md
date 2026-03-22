@@ -1,3 +1,12 @@
+---
+layout: log
+title: "Day XX — Topic Here"
+date: YYYY-MM-DD
+topics: ["Topic 1", "Topic 2"]
+summary: "One sentence describing what this session covered."
+status: complete
+---
+
 # Day XX – [Topic / Module Name]
 
 ## What I studied today

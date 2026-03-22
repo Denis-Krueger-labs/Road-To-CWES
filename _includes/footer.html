@@ -1,0 +1,49 @@
+<footer class="site-footer">
+  <div class="footer-deco" aria-hidden="true">
+    <span class="footer-line"></span>
+    <span class="footer-moth-glyph" aria-hidden="true">Ƹ̵̡Ӝ̵̨̄Ʒ</span>
+    <img src="{{ '/assets/img/moon-accent.svg' | prepend: site.baseurl }}" alt="" class="footer-moon" width="200" height="200" style="width:200px;height:200px;object-fit:contain;opacity:0.5;">
+    <span class="footer-moth-glyph" aria-hidden="true">Ƹ̵̡Ӝ̵̨̄Ʒ</span>
+    <span class="footer-line"></span>
+  </div>
+
+  <div class="footer-inner">
+    <div class="footer-col">
+      <div class="footer-handle">0N1S3C</div>
+      <p class="footer-tagline">Red team methodology • Gothic aesthetic • Perpetual student</p>
+      {% if site.main_site_url and site.main_site_url != "" %}
+      <p class="footer-tagline" style="margin-top:0.6rem;">
+        <a href="{{ site.main_site_url }}" target="_blank" rel="noopener" class="footer-link">{{ site.portfolio_label | default: "Main Site" }} ↗</a>
+      </p>
+      {% endif %}
+    </div>
+
+    <div class="footer-col">
+      <h4 class="footer-heading">Profiles</h4>
+      <ul class="footer-links" role="list">
+        <li><a href="{{ site.author.htb }}" target="_blank" rel="noopener" class="footer-link htb">HackTheBox</a></li>
+        <li><a href="{{ site.author.thm }}" target="_blank" rel="noopener" class="footer-link thm">TryHackMe</a></li>
+        <li><a href="{{ site.author.github }}" target="_blank" rel="noopener" class="footer-link gh">GitHub</a></li>
+        {% if site.discord_handle and site.discord_handle != "" %}
+        <li><a href="https://discord.gg/5BhCVQhu" target="_blank" rel="noopener" class="footer-link">Discord</a></li>
+        {% endif %}
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="footer-heading">Disclaimer</h4>
+      <p class="footer-disclaimer">All activities documented here were conducted exclusively within authorized lab environments. No real-world systems were accessed.</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span class="footer-copy">© {{ 'now' | date: "%Y" }} Denis (0N1S3C) • THWS Würzburg</span>
+    <span class="footer-ai-note">This site was designed and refined with AI assistance.</span>
+    {% if site.enable_visitor_counter and site.goatcounter_code != "" %}
+    <span class="footer-visits">
+      <img src="https://{{ site.goatcounter_code }}.goatcounter.com/counter/.svg"
+           alt="visitor count" class="gc-badge" loading="lazy">
+    </span>
+    {% endif %}
+  </div>
+</footer>

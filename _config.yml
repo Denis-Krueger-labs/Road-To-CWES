@@ -1,0 +1,64 @@
+title: "0N1S3C — Road to CWES"
+description: "Denis Krüger's public learning journal documenting the journey toward CWES — daily study logs, notes, and reflections."
+url: "https://Denis-Krueger-labs.github.io"
+baseurl: "/Road-To-CWES"
+
+author:
+  name: "Denis"
+  handle: "0N1S3C"
+  htb: "https://app.hackthebox.com/users/3188353"
+  thm: "https://tryhackme.com/p/0N1S3C"
+  github: "https://github.com/Denis-Krueger-labs"
+  university: "THWS Würzburg"
+
+main_site_url: ""
+portfolio_label: "Main Site"
+discord_handle: "streetfighter_lp"
+github_profile: "https://github.com/Denis-Krueger-labs"
+
+enable_visitor_counter: false
+goatcounter_code: ""
+lanyard_user_id: "536248721189371904"
+
+permalink: pretty
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: "highlight"
+    block:
+      line_numbers: false
+
+highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+include:
+  - logs
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - templates/
+  - vendor/
+  - .bundle/
+  - node_modules/
+  - "**/.DS_Store"
+  - "Day01.md"
+  - "Day02.md"
+  - "Day03.md"
+  - "Day04.md"
+
+defaults:
+  - scope:
+      path: "logs"
+    values:
+      layout: log
+
+sass:
+  sass_dir: _sass
+  style: compressed

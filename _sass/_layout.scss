@@ -1,0 +1,787 @@
+// ═══════════════════════════════════════════
+//  HEADER / NAV — brutalist bar
+// ═══════════════════════════════════════════
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: $nav-height;
+  background: rgba($bg-void, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid $border;
+  transition: border-color $transition-base, background $transition-base;
+
+  &.scrolled {
+    background: rgba($bg-void, 0.98);
+    border-bottom-color: $border-brutal;
+  }
+}
+
+.nav-inner {
+  max-width: $max-wide;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: $text-primary;
+  flex-shrink: 0;
+
+  .logo-moth {
+    display: flex;
+    align-items: center;
+    .moth-tiny { width: 28px; height: auto; }
+  }
+
+  .logo-text {
+    font-family: $font-display;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $text-primary;
+  }
+
+  &:hover .moth-tiny {
+    animation: mothHover 0.6s ease forwards;
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+}
+
+.nav-link {
+  padding: 0.4rem 0.9rem;
+  border-radius: 0;
+  color: $text-muted;
+  font-size: 0.78rem;
+  font-weight: 500;
+  font-family: $font-mono;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all $transition-fast;
+  text-decoration: none;
+  border-left: 1px solid transparent;
+
+  &:hover, &.active {
+    color: $text-primary;
+    background: rgba(90, 30, 160, 0.1);
+    border-left-color: $purple-700;
+  }
+
+  &.active {
+    color: $purple-300;
+  }
+
+  &.nav-link-external {
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0.6rem;
+    color: $text-muted;
+    border-left: none;
+    &:hover { color: $purple-300; background: rgba(90,30,160,0.1); }
+  }
+}
+
+// Hamburger
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: 1px solid $border-brutal;
+  border-radius: 0;
+  cursor: pointer;
+  padding: 0 8px;
+
+  span {
+    display: block;
+    height: 1px;
+    background: $text-secondary;
+    border-radius: 0;
+    transition: all $transition-base;
+  }
+
+  &[aria-expanded="true"] {
+    span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  }
+}
+
+// ── Mobile nav ────────────────────────────
+@media (max-width: 640px) {
+  .nav-toggle { display: flex; }
+
+  .nav-links {
+    position: fixed;
+    top: $nav-height;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: rgba($bg-void, 0.99);
+    border-bottom: 1px solid $border-brutal;
+    padding: 0.5rem 0;
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform $transition-base, opacity $transition-base;
+
+    &.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    li { width: 100%; }
+    .nav-link { width: 100%; padding: 0.85rem 1.5rem; display: block; border-left: none; border-bottom: 1px solid $border; }
+  }
+}
+
+// ═══════════════════════════════════════════
+//  FOOTER
+// ═══════════════════════════════════════════
+
+.site-footer {
+  position: relative;
+  z-index: 2;
+  margin-top: 6rem;
+  border-top: 1px solid $border-brutal;
+  background: $bg-void;
+}
+
+.footer-deco {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 1.5rem 1rem;
+  color: $purple-800;
+
+  .footer-line {
+    flex: 1;
+    max-width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $purple-800, transparent);
+  }
+
+  .moth-tiny { width: 24px; height: auto; opacity: 0.5; }
+  .footer-moon { width: 18px; height: 18px; object-fit: contain; opacity: 0.5; animation: mothFloat 14s ease-in-out infinite; }
+  .footer-moth-glyph { font-size: 1.1rem; color: rgba(168, 85, 247, 0.55); text-shadow: 0 0 8px rgba(168, 85, 247, 0.4); animation: mothFloat 9s ease-in-out infinite; }
+}
+
+.footer-inner {
+  max-width: $max-wide;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  gap: 3rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.footer-handle {
+  font-family: $font-display;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $text-secondary;
+  margin-bottom: 0.5rem;
+}
+
+.footer-tagline {
+  font-size: 0.78rem;
+  color: $text-muted;
+  line-height: 1.5;
+  font-family: $font-mono;
+}
+
+.footer-heading {
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: $purple-700;
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+  border-bottom: 1px solid $border;
+  padding-bottom: 0.5rem;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-link {
+  font-size: 0.82rem;
+  color: $text-muted;
+  text-decoration: none;
+  font-family: $font-mono;
+  transition: color $transition-fast;
+
+  &.htb:hover { color: $htb; }
+  &.thm:hover { color: #ff6b6b; }
+  &.gh:hover  { color: $purple-300; }
+  &:not(.htb):not(.thm):not(.gh):hover { color: $text-primary; }
+}
+
+.footer-disclaimer {
+  font-size: 0.75rem;
+  color: $text-muted;
+  line-height: 1.7;
+  font-family: $font-mono;
+}
+
+.footer-bottom {
+  border-top: 1px solid $border;
+  text-align: center;
+  padding: 1rem;
+}
+
+.footer-copy {
+  font-size: 0.72rem;
+  color: $text-muted;
+  font-family: $font-mono;
+  opacity: 0.6;
+}
+
+.footer-ai-note {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  color: $text-muted;
+  letter-spacing: 0.06em;
+  opacity: 0.55;
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.footer-visits {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  color: $text-muted;
+
+  a { color: $text-muted; &:hover { color: $purple-300; } }
+}
+
+.gc-badge { height: 16px; width: auto; vertical-align: middle; opacity: 0.7; }
+
+// ── About strip (homepage only) ───────────
+.about-strip {
+  background: linear-gradient(135deg, rgba(26, 10, 46, 0.6), rgba(13, 13, 26, 0.8));
+  border-top: 1px solid rgba(168, 85, 247, 0.15);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+  margin: 2rem 0;
+  padding: 4rem 1.5rem;
+}
+
+.about-strip-inner {
+  max-width: $max-wide;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.about-strip-text {
+  max-width: 600px;
+
+  h2 {
+    font-family: $font-display;
+    font-size: 1.6rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #f0e6ff, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  p {
+    color: #b8a0d0;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+    font-size: 0.94rem;
+  }
+}
+
+.about-strip-moth {
+  opacity: 0.5;
+  animation: mothFloat 7s ease-in-out infinite;
+
+  .moth-small { width: 140px; height: auto; }
+
+  @media (max-width: 640px) { display: none; }
+}
+
+// ═══════════════════════════════════════════
+//  HERO SECTION — liminal void
+// ═══════════════════════════════════════════
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: calc($nav-height + 5rem) 1.5rem 6rem;
+  text-align: center;
+  overflow: hidden;
+
+  // Cold void — single deep vignette, no warm spread
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 30%, rgba($purple-900, 0.45) 0%, transparent 70%),
+    radial-gradient(ellipse 100% 60% at 50% 100%, rgba($bg-void, 0.9) 0%, transparent 80%),
+    $bg-primary;
+
+  // Vertical structural line — liminal corridor feel
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: linear-gradient(180deg,
+      transparent 0%,
+      rgba($purple-800, 0.15) 20%,
+      rgba($purple-700, 0.08) 50%,
+      rgba($purple-800, 0.15) 80%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+}
+
+.hero-moth {
+  margin-bottom: 2rem;
+  animation: mothFloat 9s ease-in-out infinite, glowPulse 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(120,40,220,0.4)) drop-shadow(0 0 50px rgba(90,20,160,0.15));
+
+  .moth-hero { width: clamp(240px, 42vw, 420px); height: auto; }
+}
+
+.hero-content {
+  max-width: 640px;
+}
+
+.hero-handle {
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: $purple-700;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+
+  &::before { content: '// '; color: $purple-800; }
+}
+
+.hero-title {
+  font-family: $font-display;
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.0;
+  margin-bottom: 1.25rem;
+  color: $text-primary;
+  // No gradient — stark, white on void
+}
+
+.hero-subtitle {
+  font-size: 0.82rem;
+  font-family: $font-mono;
+  color: $text-muted;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-top: 1px solid $border;
+  border-bottom: 1px solid $border;
+  padding: 0.75rem 0;
+}
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  border: 1px solid $border;
+
+  .stat {
+    font-size: 0.72rem;
+    color: $text-muted;
+    font-family: $font-mono;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.25rem;
+    border-right: 1px solid $border;
+
+    &:last-of-type { border-right: none; }
+  }
+  .stat-num { color: $purple-300; font-weight: 600; }
+  .stat-divider { display: none; }
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: 1px solid $border-brutal;
+
+  .btn {
+    flex: 1;
+    justify-content: center;
+    min-width: 140px;
+    border-right: 1px solid $border-brutal;
+    &:last-child { border-right: none; }
+  }
+}
+
+.hero-moon {
+  position: absolute;
+  right: clamp(1rem, 5vw, 6rem);
+  bottom: 4rem;
+  opacity: 0.22;
+  animation: mothFloat 14s ease-in-out infinite;
+  pointer-events: none;
+
+  .hero-moon-img { width: clamp(36px, 5vw, 56px); height: auto; }
+
+  @media (max-width: 640px) { display: none; }
+}
+
+// ── Terminal quote (hero) ─────────────────
+.terminal-quote {
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  color: $text-secondary;
+  background: rgba(5, 5, 16, 0.75);
+  border: 1px solid $border-brutal;
+  border-left: 3px solid $purple-700;
+  padding: 0.9rem 1.4rem;
+  margin: 1.75rem auto 2.25rem;
+  max-width: 400px;
+  text-align: left;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  letter-spacing: 0.02em;
+}
+
+.tq-line {
+  display: block;
+  white-space: pre;
+  line-height: 1.6;
+  &:first-child { color: $text-muted; }
+}
+
+// ── Hero contact strip ────────────────────
+.hero-contact {
+  margin-top: 1.25rem;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: $text-muted;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  a { color: $purple-500; text-decoration: none; }
+  a:hover { color: $purple-300; }
+
+  .hc-sep { color: $purple-800; }
+}
+
+// ═══════════════════════════════════════════
+//  SECTION DIVIDER
+// ═══════════════════════════════════════════
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0.5rem 2rem;
+  color: $purple-800;
+
+  .divider-line {
+    flex: 1;
+    max-width: 320px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $purple-800, transparent);
+  }
+
+  .divider-moon { width: 20px; height: 20px; object-fit: contain; animation: mothFloat 14s ease-in-out infinite; opacity: 0.45; }
+}
+
+// ═══════════════════════════════════════════
+//  WRITEUPS SECTION
+// ═══════════════════════════════════════════
+
+.writeups-section {
+  max-width: $max-wide;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid $border;
+
+  h2 {
+    font-family: $font-display;
+    font-size: clamp(1.2rem, 3vw, 1.7rem);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $text-primary;
+    font-weight: 700;
+    // Structural left accent
+    padding-left: 1rem;
+    border-left: 3px solid $purple-600;
+  }
+}
+
+// Filter tabs — sharp, architectural
+.filter-tabs {
+  display: flex;
+  gap: 0;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  border: 1px solid $border;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  border: none;
+  border-right: 1px solid $border;
+  border-radius: 0;
+  background: transparent;
+  color: $text-muted;
+  font-size: 0.72rem;
+  font-family: $font-mono;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:last-child { border-right: none; }
+
+  .count {
+    font-size: 0.65rem;
+    color: $purple-700;
+    font-family: $font-mono;
+  }
+
+  &:hover { color: $text-secondary; background: rgba(60, 20, 100, 0.15); }
+
+  &.active {
+    background: rgba(60, 20, 120, 0.25);
+    color: $purple-300;
+    border-bottom: 2px solid $purple-500;
+    .count { color: $purple-400; }
+  }
+}
+
+// ── Log card grid (study log) ─────────────
+.log-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 6px;
+  background: $border;
+}
+
+// ── Writeup card grid — brutalist ──────────
+.writeup-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 6px;
+  background: $border;
+}
+
+.writeup-card {
+  display: block;
+  background: $bg-card;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: background $transition-base;
+  position: relative;
+
+  // Left border = difficulty indicator (brutalist)
+  border-left: 3px solid transparent;
+
+  &[data-difficulty="easy"]   { border-left-color: rgba(34, 197, 94, 0.4); }
+  &[data-difficulty="medium"] { border-left-color: rgba(245,158,11, 0.4); }
+  &[data-difficulty="hard"]   { border-left-color: rgba(239,68,68, 0.4); }
+
+  &:hover {
+    background: $bg-card-hover;
+
+    &[data-difficulty="easy"]   { border-left-color: $easy; }
+    &[data-difficulty="medium"] { border-left-color: $medium; }
+    &[data-difficulty="hard"]   { border-left-color: $hard; }
+
+    .read-link .arrow { transform: translateX(4px); }
+  }
+
+  &.hidden { display: none; }
+}
+
+// Remove old difficulty bar
+.card-difficulty-bar { display: none; }
+
+.card-body {
+  padding: 1.75rem 1.6rem 1.75rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-height: 190px;
+}
+
+.card-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.card-title {
+  font-family: $font-display;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $text-primary;
+  line-height: 1.2;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.card-cves {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.card-techniques {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.card-footer {
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(80, 40, 120, 0.15);
+  margin-top: auto;
+}
+
+.read-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-family: $font-mono;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $text-muted;
+  font-weight: 500;
+
+  .arrow {
+    display: inline-block;
+    transition: transform $transition-fast;
+    color: $purple-600;
+  }
+}
+
+// ── Spotify / Now Playing widget ──────────
+.spotify-widget {
+  position: fixed;
+  left: 1.5rem;
+  bottom: 2rem;
+  z-index: 50;
+  font-family: $font-mono;
+  font-size: 1rem;
+  color: $text-secondary;
+  background: rgba(3, 2, 12, 0.88);
+  border: 1px solid $border-brutal;
+  border-left: 4px solid $purple-700;
+  padding: 1.4rem 2rem;
+  min-width: 480px;
+  max-width: 560px;
+  pointer-events: none;
+  backdrop-filter: blur(6px);
+  transition: opacity 0.4s;
+
+  &.sw-idle { opacity: 0.35; }
+
+  @media (max-width: 900px) { display: none; }
+}
+
+.sw-bar {
+  color: $text-muted;
+  white-space: pre;
+  line-height: 1.4;
+}
+
+.sw-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.7;
+}
+
+.sw-song     { color: $text-primary; font-weight: 600; }
+.sw-artist   { color: $purple-400; }
+.sw-progress { color: $purple-700; letter-spacing: 0.01em; }

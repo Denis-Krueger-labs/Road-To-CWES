@@ -1,0 +1,117 @@
+---
+layout: default
+title: Home
+description: "Denis Krüger's public study journal documenting the road to CWES certification."
+---
+
+<section class="hero">
+
+  <div class="hero-moth" aria-hidden="true">
+    <img src="{{ '/assets/img/moth-logo.svg' | prepend: site.baseurl }}" alt="" class="moth-hero">
+  </div>
+
+  <div class="hero-content reveal">
+    <div class="hero-handle">0N1S3C</div>
+    <h1 class="hero-title">Road to<br>CWES</h1>
+    <p class="hero-subtitle">Daily Study Journal — Web Security Fundamentals</p>
+
+    <div class="hero-stats">
+      {% assign log_pages = site.pages | where: 'layout', 'log' %}
+      <span class="stat"><span class="stat-num">{{ log_pages | size }}</span> days logged</span>
+      <span class="stat-divider">◆</span>
+      <span class="stat"><span class="stat-num">CWES</span></span>
+      <span class="stat-divider">◆</span>
+      <span class="stat">THM <span class="stat-num">Top 1%</span></span>
+    </div>
+
+    <div class="terminal-quote" aria-label="Terminal prompt">
+      <span class="tq-line">┌──(0N1S3C㉿kali)-[~]</span>
+      <span class="tq-line">└─$ information wants to be free...<span class="terminal-cursor">█</span></span>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#logs" class="btn btn-primary">View Study Log</a>
+      <a href="{{ site.baseurl }}/about" class="btn btn-ghost">About Me</a>
+      <a href="{{ site.github_profile | default: site.author.github }}" class="btn btn-ghost" target="_blank" rel="noopener">GitHub</a>
+    </div>
+
+    <div class="hero-contact">
+      <span><a href="{{ site.github_profile | default: site.author.github }}" target="_blank" rel="noopener">github/Denis-Krueger-labs</a></span>
+      <span class="hc-sep">◆</span>
+      <span><a href="https://discord.gg/5BhCVQhu" target="_blank" rel="noopener">discord</a></span>
+    </div>
+  </div>
+
+  <div class="hero-moon" aria-hidden="true">
+    <img src="{{ '/assets/img/moon-accent.svg' | prepend: site.baseurl }}" alt="" class="hero-moon-img">
+  </div>
+
+</section>
+
+<div class="section-divider" aria-hidden="true">
+  <span class="divider-line"></span>
+  <img src="{{ '/assets/img/moon-accent.svg' | prepend: site.baseurl }}" alt="" class="divider-moon" width="200" height="200" style="width:200px;height:200px;object-fit:contain;opacity:0.45;">
+  <span class="divider-line"></span>
+</div>
+
+<section class="writeups-section" id="logs">
+
+  <div class="section-header reveal">
+    <h2>Study Log</h2>
+  </div>
+
+  <div class="log-grid">
+    {% assign sorted = site.pages | where: 'layout', 'log' | sort: 'date' | reverse %}
+    {% for log in sorted %}
+    <a href="{{ log.url | prepend: site.baseurl }}" class="writeup-card">
+      <div class="card-difficulty-bar"></div>
+      <div class="card-body">
+
+        <div class="card-header-row">
+          <h3 class="card-title">{{ log.title }}</h3>
+          {% if log.status == "complete" %}
+          <span class="badge difficulty-badge easy">Done</span>
+          {% elsif log.status == "in-progress" %}
+          <span class="badge difficulty-badge medium">Active</span>
+          {% endif %}
+        </div>
+
+        <div class="card-meta">
+          {% if log.date %}<span class="badge date-badge">{{ log.date | date: "%Y-%m-%d" }}</span>{% endif %}
+        </div>
+
+        {% if log.topics and log.topics.size > 0 %}
+        <div class="card-techniques">
+          {% for topic in log.topics limit:3 %}
+          <span class="technique-tag">{{ topic }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if log.summary %}
+        <p style="font-size:0.82rem;color:#9d8ab8;line-height:1.5;margin:0;">{{ log.summary }}</p>
+        {% endif %}
+
+        <div class="card-footer">
+          <span class="read-link">Read Entry <span class="arrow">→</span></span>
+        </div>
+
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+</section>
+
+<section class="about-strip reveal">
+  <div class="about-strip-inner">
+    <div class="about-strip-text">
+      <h2>About This Journal</h2>
+      <p>A public, honest record of studying toward the Certified Web Exploitation Specialist. Every entry documents what I worked on, what clicked, what confused me, and what comes next — a structured log anyone can follow or use as a template.</p>
+      <a href="{{ site.baseurl }}/about" class="btn btn-ghost">Learn More →</a>
+    </div>
+    <div class="about-strip-moth" aria-hidden="true">
+      <img src="{{ '/assets/img/moth-logo.svg' | prepend: site.baseurl }}" alt="" width="300" height="300" style="width:300px;height:300px;object-fit:contain;">
+    </div>
+  </div>
+</section>

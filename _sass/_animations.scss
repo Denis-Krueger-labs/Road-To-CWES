@@ -1,0 +1,225 @@
+// ═══════════════════════════════════════════
+//  ANIMATIONS — eerie, slow, liminal
+// ═══════════════════════════════════════════
+
+// ── Moth floating (hero) — slow drift ─────
+@keyframes mothFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  20%       { transform: translateY(-10px) rotate(-1deg); }
+  50%       { transform: translateY(-18px) rotate(0.5deg); }
+  75%       { transform: translateY(-8px) rotate(1.2deg); }
+}
+
+// ── Moth hover (nav logo) ─────────────────
+@keyframes mothHover {
+  0%   { transform: scale(1) rotate(0deg); }
+  30%  { transform: scale(1.15) rotate(-4deg); }
+  60%  { transform: scale(1.1) rotate(2deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+// ── Rose floating ─────────────────────────
+@keyframes roseFloat {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50%       { transform: translateY(-12px) rotate(3deg); }
+}
+
+// ── Rose spin (divider) ───────────────────
+@keyframes roseSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+// ── Petal fall ────────────────────────────
+@keyframes petalFall {
+  0% {
+    transform: translateY(-20px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  8% { opacity: 0.7; }
+  92% { opacity: 0.3; }
+  100% {
+    transform: translateY(100vh) translateX(var(--drift)) rotate(var(--spin));
+    opacity: 0;
+  }
+}
+
+// ── Petal shape ───────────────────────────
+.petal {
+  position: absolute;
+  top: -20px;
+  border-radius: 50% 0 50% 0;
+  animation: petalFall var(--duration) var(--delay) ease-in infinite;
+  pointer-events: none;
+
+  &.petal-1  { --spin: 180deg; --drift: 40px;  border-radius: 50% 0 50% 0; }
+  &.petal-2  { --spin: -120deg; --drift: -30px; border-radius: 0 50% 0 50%; }
+  &.petal-3  { --spin: 240deg;  --drift: 60px;  border-radius: 50% 50% 0 0; }
+  &.petal-4  { --spin: -200deg; --drift: -50px; border-radius: 0 0 50% 50%; }
+}
+
+// ── Glow pulse — cold purple breathe ──────
+@keyframes glowPulse {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 16px rgba(100, 30, 200, 0.35))
+      drop-shadow(0 0 40px rgba(80, 15, 160, 0.12));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 28px rgba(120, 40, 220, 0.55))
+      drop-shadow(0 0 60px rgba(100, 20, 190, 0.25))
+      drop-shadow(0 0 100px rgba(160, 50, 240, 0.1));
+  }
+}
+
+// ── Hero moth — slow combined animation ───
+.hero-moth {
+  animation: mothFloat 9s ease-in-out infinite, glowPulse 6s ease-in-out infinite;
+}
+
+// ── Card entrance — slower, heavier ───────
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+    background: $bg-void;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    background: $bg-card;
+  }
+}
+
+.writeup-card {
+  animation: cardEnter 0.5s ease forwards;
+}
+
+// Stagger card entrance
+@for $i from 1 through 20 {
+  .writeup-card:nth-child(#{$i}) {
+    animation-delay: #{($i - 1) * 0.07}s;
+    opacity: 0;
+  }
+}
+
+// ── TOC link underline ────────────────────
+#tocNav a {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: $purple-600;
+    transition: width $transition-fast;
+  }
+  &:hover::after, &.active::after { width: 100%; }
+}
+
+// ── Moth wing flutter ─────────────────────
+.moth-svg {
+  transition: filter $transition-slow;
+  &:hover {
+    filter: drop-shadow(0 0 10px rgba(100, 30, 200, 0.6));
+  }
+}
+
+// ── Page fade-in ──────────────────────────
+@keyframes pageFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.site-main {
+  animation: pageFade 0.6s ease forwards;
+}
+
+// ── Typewriter cursor (handle) ────────────
+.hero-handle::after {
+  content: '█';
+  display: inline-block;
+  animation: blink 1.4s step-end infinite;
+  margin-left: 3px;
+  color: $purple-700;
+  font-size: 0.75em;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+// ── Terminal block cursor — real shell feel ──
+@keyframes terminalBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.terminal-cursor {
+  animation: terminalBlink 1.2s step-end infinite;
+  color: $purple-300;
+}
+
+// ── Scroll-reveal ─────────────────────────
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ── ASCII moth glyphs drifting L→R ────────
+@keyframes mothGlyphFloat {
+  0%   { transform: translateX(0) translateY(0) rotate(-2deg); opacity: 0; }
+  8%   { opacity: var(--moth-op); }
+  25%  { transform: translateX(25vw) translateY(-18px) rotate(2deg); }
+  50%  { transform: translateX(50vw) translateY(6px) rotate(-1deg); }
+  75%  { transform: translateX(75vw) translateY(-12px) rotate(3deg); }
+  92%  { opacity: var(--moth-op); }
+  100% { transform: translateX(102vw) translateY(0) rotate(-2deg); opacity: 0; }
+}
+
+// ── ASCII moth glyphs drifting R→L ────────
+@keyframes mothGlyphFloatRTL {
+  0%   { transform: translateX(0) translateY(0) rotate(2deg); opacity: 0; }
+  8%   { opacity: var(--moth-op); }
+  25%  { transform: translateX(-25vw) translateY(-14px) rotate(-2deg); }
+  50%  { transform: translateX(-50vw) translateY(8px) rotate(1deg); }
+  75%  { transform: translateX(-75vw) translateY(-10px) rotate(-3deg); }
+  92%  { opacity: var(--moth-op); }
+  100% { transform: translateX(-102vw) translateY(0) rotate(2deg); opacity: 0; }
+}
+
+// ── Liminal scan line (subtle) ────────────
+@keyframes scanLine {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.site-main::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba($purple-700, 0) 30%,
+    rgba($purple-600, 0.06) 50%,
+    rgba($purple-700, 0) 70%,
+    transparent 100%
+  );
+  animation: scanLine 12s linear infinite;
+  pointer-events: none;
+  z-index: 10;
+}
