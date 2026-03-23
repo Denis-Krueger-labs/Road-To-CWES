@@ -64,9 +64,10 @@ It also gives other learners a format they can copy if they want to document the
 A simple version of the structure looks like this:
 
 ```text
-Day 01.md
-Day 02.md
-Day 03.md
+logs/
+└── Day 01.md
+└── Day 02.md
+└── Day 03.md
 ...
 
 templates/
