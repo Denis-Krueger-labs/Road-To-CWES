@@ -1,6 +1,6 @@
 ---
 layout: log
-title: "Day 05 — SQL Injection Fundamentals"
+title: "Day 05 - SQL Injection Fundamentals"
 date: 2026-03-23
 topics: ["SQL Injection", "MySQL", "DBMS", "Authentication Bypass", "Query Logic", "Comments", "Input Validation"]
 summary: "Introduction to SQL Injection through database basics, manual MySQL interaction, and simple authentication bypass examples using OR conditions and comments."
