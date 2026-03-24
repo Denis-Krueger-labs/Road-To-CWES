@@ -1,6 +1,6 @@
 ---
 layout: log
-title: "Day 02 — APIs, CRUD Operations, and First API Interaction"
+title: "Day 02 - APIs, CRUD Operations, and First API Interaction"
 date: 2026-03-20
 topics: ["APIs", "CRUD", "HTTP Methods", "JSON", "jq", "Web Applications"]
 summary: "Moved from theory into actually interacting with a web API using cURL — GET, PUT, DELETE, and JSON responses."
