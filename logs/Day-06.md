@@ -1,3 +1,11 @@
+---
+layout: log
+title: "Day 06 — SQL Injection: UNION, Enumeration, and File Access"
+date: 2026-03-24
+topics: ["SQL Injection", "UNION SELECT", "INFORMATION_SCHEMA", "MySQL", "File Read", "File Write", "Webshell", "Docker"]
+summary: "A long SQLi-heavy day focused on UNION-based enumeration, schema discovery, file access through SQL injection, and turning database access into code execution. Also included a separate machine involving Docker-related privilege escalation."
+status: complete
+---
 # Day 06  SQL Injection: UNION, Enumeration, and File Access
 
 ## What I studied today
