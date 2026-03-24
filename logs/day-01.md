@@ -1,6 +1,6 @@
 ---
 layout: log
-title: "Day 01 — HTTP, HTTPS, cURL, Requests, Responses, and Headers"
+title: "Day 01 - HTTP, HTTPS, cURL, Requests, Responses, and Headers"
 date: 2026-03-20
 topics: ["HTTP", "HTTPS", "cURL", "URL Structure", "HTTP Headers", "Status Codes"]
 summary: "Core web basics — how HTTP/HTTPS work, URL anatomy, request/response structure, and hands-on cURL usage."
