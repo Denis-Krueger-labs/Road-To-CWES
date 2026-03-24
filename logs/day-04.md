@@ -1,6 +1,6 @@
 ---
 layout: log
-title: "Day 04 — Backend Components, APIs, CVEs, and JavaScript Deobfuscation"
+title: "Day 04 - Backend Components, APIs, CVEs, and JavaScript Deobfuscation"
 date: 2026-03-22
 topics: ["Backend", "Web Servers", "Databases", "REST API", "CVEs", "JavaScript Deobfuscation", "Base64"]
 summary: "Backend architecture, public CVEs, and a full JavaScript deobfuscation workflow — source review, request replication, and decoding chained together."
