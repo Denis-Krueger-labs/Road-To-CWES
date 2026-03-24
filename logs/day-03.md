@@ -1,6 +1,6 @@
 ---
 layout: log
-title: "Day 03 — Frontend vs Backend, Web Basics, and First Client-Side Attacks"
+title: "Day 03 - Frontend vs Backend, Web Basics, and First Client-Side Attacks"
 date: 2026-03-21
 topics: ["Frontend", "Backend", "HTML", "CSS", "JavaScript", "XSS", "CSRF", "URL Encoding"]
 summary: "How web applications are structured, how client-side attacks work, and first hands-on XSS payload testing."
