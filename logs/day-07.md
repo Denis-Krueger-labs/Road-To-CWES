@@ -6,7 +6,7 @@ topics: ["SQL Injection", "UNION SELECT", "Database Enumeration", "Oracle", "MyS
 summary: "Focused SQLi practice using PortSwigger labs: detection, login bypass, UNION-based extraction, DBMS fingerprinting, and database enumeration across Oracle and non-Oracle targets."
 status: complete
 ---
-# Day 07 – SQL Injection Detection, UNION Attacks, and Database Enumeration
+# Day 07 SQL Injection Detection, UNION Attacks, and Database Enumeration
 
 ## What I studied today
 
