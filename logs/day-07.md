@@ -1,6 +1,6 @@
 ---
 layout: log
-title: "Day 07  SQL Injection Detection, UNION Attacks, and Database Enumeration"
+title: "Day 07 - SQL Injection Detection, UNION Attacks, and Database Enumeration"
 date: 2026-03-25
 topics: ["SQL Injection", "UNION SELECT", "Database Enumeration", "Oracle", "MySQL", "Burp Suite", "PortSwigger"]
 summary: "Focused SQLi practice using PortSwigger labs: detection, login bypass, UNION-based extraction, DBMS fingerprinting, and database enumeration across Oracle and non-Oracle targets."
