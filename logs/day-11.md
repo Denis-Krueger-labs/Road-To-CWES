@@ -1,12 +1,12 @@
 ---
 layout: log
-title: "Day 11 — Recovery Day, Academy Writeup, File Inclusion, and Light C# Practice"
+title: "Day 11 - Recovery Day, Academy Writeup, File Inclusion, and Light C# Practice"
 date: 2026-03-29
 topics: ["Recovery Day", "HTB Academy", "File Inclusion", "C#", "Writeups", "Crisis Interruption"]
 summary: "A disrupted and emotionally heavy day. Main progress came from documenting the Academy machine, finishing a basic file inclusion room, and doing a small amount of C# practice."
 status: complete
 ---
-# Day 11 – Recovery Day, Academy Writeup, File Inclusion, and Light C# Practice
+# Day 11 - Recovery Day, Academy Writeup, File Inclusion, and Light C# Practice
 
 ## What I studied today
 
