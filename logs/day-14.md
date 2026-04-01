@@ -1,6 +1,6 @@
 ---
 layout: log
-title: "Day 14 — PHP Filters, Wrappers, and Extending LFI to RCE"
+title: "Day 14 - PHP Filters, Wrappers, and Extending LFI to RCE"
 date: 2026-04-01
 topics: ["LFI", "PHP Filters", "PHP Wrappers", "RCE", "ffuf", "Web Security"]
 summary: "Low-energy session focused on PHP filters and wrappers, using LFI for source disclosure and extending it to remote code execution."
