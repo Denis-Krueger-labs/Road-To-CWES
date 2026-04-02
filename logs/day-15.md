@@ -103,7 +103,7 @@ Only light theory today  no deep exploitation.
 
 Since I was still sick and needed something lower-pressure to do, I also made a small design piece.
 
-![Scanning eye](/assets/img/eye_scanning_iris_only_fallback.gif)
+![Scanning eye]({{ '/assets/img/eye_scanning_iris_only_fallback.gif' | relative_url }})
 
 ---
 
