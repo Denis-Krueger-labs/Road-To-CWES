@@ -103,7 +103,7 @@ Only light theory today  no deep exploitation.
 
 Since I was still sick and needed something lower-pressure to do, I also made a small design piece.
 
-![Big Brother Is Watching](assets/img/eye_scanning_iris_only_fallback.svg)
+![Big Brother Is Watching](/assets/img/eye_scanning_iris_only_fallback.svg)
 
 ---
 
