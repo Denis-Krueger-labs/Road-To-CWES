@@ -92,6 +92,32 @@ Today focused on:
 
 ---
 
+## Extra: Box rooted (HTB – Secret)
+
+- Completed the **Secret** machine (Linux, Easy)
+- Focus areas:
+  - Git history analysis
+  - JWT forgery
+  - command injection
+  - SUID privilege escalation via core dumps
+
+### Key takeaways
+
+- Git history is a goldmine — deleting secrets ≠ removing them  
+- JWT trust is dangerous when based only on client-controlled claims  
+- command injection in backend tools (`git log`) is easy to miss but critical  
+- core dump exploitation is insane — crashing a SUID binary to leak memory is something I hadn’t done before  
+
+### Attack chain (simplified)
+
+Git leak → JWT secret → admin token → command injection → shell → SUID core dump → root
+
+---
+
+Full writeup available on my page.
+
+---
+
 ## What went well
 
 - Burp usage felt completely natural  
