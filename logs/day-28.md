@@ -4,7 +4,7 @@ title: "Day 28 - XSS Phishing & Credential Harvesting"
 date: 2026-04-15
 topics: ["XSS", "Phishing", "Credential Harvesting", "Social Engineering", "JavaScript"]
 summary: "Used reflected XSS to inject a fake login form, remove legitimate elements, and capture credentials via a controlled server."
-status: productive
+status: complete
 ---
 
 # Day 28 – XSS Phishing Attack
