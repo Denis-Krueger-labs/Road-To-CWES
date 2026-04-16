@@ -4,7 +4,7 @@ title: "Day 27 - SQLMap Request Handling and Real-World Usage"
 date: 2026-04-14
 topics: ["SQLMap", "HTTP Requests", "Burp Suite", "Automation", "Debugging"]
 summary: "Low-energy day focused on understanding how to properly configure SQLMap with real HTTP requests, including cookies, headers, and request files."
-status: partial
+status: complete
 ---
 # Day 27 - SQLMap Request Handling
 
