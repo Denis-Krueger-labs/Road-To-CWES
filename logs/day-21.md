@@ -2,7 +2,7 @@
 layout: log
 title: "Day 21 - Recovery + Project Work"
 date: 2026-04-08
-status: partial
+status: complete
 ---
 # Day 21 – Recovery + Project Work
 
