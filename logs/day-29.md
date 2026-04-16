@@ -4,7 +4,7 @@ title: "Day 29 - Blind XSS & Session Hijacking"
 date: 2026-04-16
 topics: ["Blind XSS", "Session Hijacking", "JavaScript", "Web Exploitation"]
 summary: "Identified Blind XSS in registration form, exfiltrated admin cookie, and hijacked authenticated session."
-status: strong
+status: complete
 ---
 
 # Day 29 – Blind XSS → Admin Session Hijack
