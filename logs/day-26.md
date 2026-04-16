@@ -4,7 +4,7 @@ title: "Day 26 - Session Hijacking Concepts and Quick Exploitation Practice"
 date: 2026-04-13
 topics: ["Session Hijacking", "Cookies", "XSS", "SQLMap", "Web Exploitation"]
 summary: "A very short session due to real-life constraints, but still applied SQLMap and XSS to identify a vulnerability and simulate credential harvesting."
-status: partial
+status: complete
 ---
 # Day 26 – Session Hijacking Concepts and Quick Exploitation Practice
 
