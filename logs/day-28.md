@@ -130,5 +130,5 @@ Goal:
 
 ## Session info (optional)
 
-- Duration: ~3–4h total (split focus)
+- Duration: ~3 – 4h total (split focus)
 - Energy: Medium (busy but productive)
