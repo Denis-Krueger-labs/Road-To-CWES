@@ -89,7 +89,7 @@ Defensive ideas:
 
 Most important insight:
 
-> **No single defense is enough — security must be layered** :contentReference[oaicite:3]{index=3}  
+> **No single defense is enough  security must be layered** :contentReference[oaicite:3]{index=3}  
 
 ---
 
