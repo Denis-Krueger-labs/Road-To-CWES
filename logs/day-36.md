@@ -127,7 +127,7 @@ I structured the talk as a clear narrative:
 ## What I think I understand now
 
 - Prompt Injection is fundamentally a **context confusion problem**
-- LLMs follow instructions well — which is exactly why they are vulnerable
+- LLMs follow instructions well which is exactly why they are vulnerable
 - Security for LLMs is not about a single fix, but about **layered defenses**
 - Communication is just as important as technical understanding:
   - if I can’t explain it clearly, I don’t fully understand it yet
