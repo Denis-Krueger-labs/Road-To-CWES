@@ -1,32 +1,35 @@
 ---
-
 layout: log
-title: "Day 38 - SQLMap Exploitation & WAF Bypass"
+title: "Day 38 - SQLMap Exploitation and WAF Bypass"
 date: 2026-04-25
-topics: ["SQLMap", "Blind SQLi", "JSON requests", "WAF bypass"]
+topics:
+  - SQLMap
+  - Blind SQLi
+  - JSON requests
+  - WAF bypass
 summary: "Discovered and exploited a JSON-based time-blind SQL injection and bypassed filtering to retrieve the flag."
 status: complete
-----------------
+---
 
-# Day 38 – SQLMap Exploitation & WAF Bypass
+# Day 38 - SQLMap Exploitation and WAF Bypass
 
 ## What I studied today
 
-* SQLMap exploitation on a real HTB-style web app
-* Finding hidden endpoints via JavaScript
-* Working with JSON-based POST requests in SQLMap
-* Handling time-based blind SQL injection
-* Using tamper scripts to bypass filtering
+- SQLMap exploitation on a real HTB-style web app
+- Finding hidden endpoints via JavaScript
+- Working with JSON-based POST requests in SQLMap
+- Handling time-based blind SQL injection
+- Using tamper scripts to bypass filtering
 
 ---
 
 ## Summary of concepts
 
-* Not all vulnerabilities are visible in HTML. Sometimes the real attack surface is hidden in JavaScript (e.g. AJAX calls).
-* SQLMap can handle JSON requests if you provide the correct `--data` and `Content-Type` header.
-* Time-based blind SQLi works by measuring delays, but it is slow and less reliable than other techniques.
-* Some characters like `>` can be filtered by the server, breaking payloads.
-* Tamper scripts like `between` rewrite payloads to bypass such filters.
+- Not all vulnerabilities are visible in HTML. Sometimes the real attack surface is hidden in JavaScript (e.g. AJAX calls).
+- SQLMap can handle JSON requests if you provide the correct `--data` and `Content-Type` header.
+- Time-based blind SQLi works by measuring delays, but it is slow and less reliable than other techniques.
+- Some characters like `>` can be filtered by the server, breaking payloads.
+- Tamper scripts like `between` rewrite payloads to bypass such filters.
 
 ---
 
@@ -34,13 +37,10 @@ status: complete
 
 The request flow in this challenge was important:
 
-* The frontend (`shop.html`) used JavaScript to send a POST request:
-
+- The frontend (`shop.html`) used JavaScript to send a POST request:
   ```json
   {"id": 1}
-  ```
-
-  to `action.php`.
+to `action.php`.
 
 * This request was sent as:
 
@@ -146,13 +146,11 @@ Also, since the injection was time-based:
 
 ## Plan for next session
 
-* Practice another SQLMap lab with different injection type
-* Focus on error-based and UNION-based SQLi for comparison
-* Try manual exploitation (without SQLMap) for better understanding
-
+* Start Stack-Based Buffer Overflows on Linux x86
+* Continue work on the P2P backup system (decentralized project)
 ---
 
 ## Session info (optional)
 
-* Duration: ~2–3 hours
-* Energy: Medium to High
+* Duration: ~3 hours
+* Energy: Medium
